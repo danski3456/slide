@@ -1,0 +1,2 @@
+pandoc-mermaid-filter==0.1.0
+pandocfilters==1.4.3
