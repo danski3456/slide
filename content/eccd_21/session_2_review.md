@@ -96,14 +96,105 @@ x_0, x_1, y
 * Ideally, each enconder/transformation/etc should be re-trained on each split.
 * They are re-trained once at the end for evaluating the test set.
 
-## Regular Expression
+## Managing code
 
-## Docker
+
+### Desired qualities
+
+When writing code, as with any other collaborative document we would like to:
+
+* Have a copy in the cloud, so that progress is not lost (backup).
+* Have a tool that fixes problems when people modify the same file (conflicts).
+* Have a way to go back to a previous version (history).
+
+### Git
+
+* Small program developed by Linus Torvalds (creator of linux) in 2005.
+* It is independent of the editor (TextPad, VSCode, Word, etc).
+* Saves all requested changes to a remote server.
+* Changes can be:
+	* Added (locally)
+	* Commited (creating a checkpoint)
+	* Pushed (uploaded to the server)
+	* Pulled (downloaded from the server)
+
+### Github
+
+![](../img/github.jpg)
+
+### Github
+
+* Github is a service that hosts git servers.
+* It provides a nice interface to look at code
+* It is used by almost every code developer
+* Alternatives exists: gitlab, bitbucket, etc.
 
 ## API
 
+* Once a Machine Learning model is trained, it needs to be deployed to be used.
+* To deploy ML models, we often use an Application Programming Interface (API).
+* An API is a program that exposes a custom URL: it might accept parameters and returns a response.
 
+### Example API
 
-## Github
+* URL: "https://example.com/sum/"
+* When called with specific parameters, it returns the sum of "a" and "b"
+* We can send paramters in the url "sum/?a=10&b=5"
+* We get the response: 15.
 
-![](../img/github.jpg)
+### Types of API
+
+* APIs use HTTP / HTTPS.
+* Normally, we send "GET" or "POST" message types.
+* Each message contains a HEADER:
+	* URL is here
+	* Information about the sender (type of browser, etc)
+	* Authentication information if required.
+* Messages might contain a BODY:
+	* For large messages, the content can be here.
+
+### Example HTTP GET
+
+![](../img/http_get.png)
+
+### Example HTTP POST
+
+![](../img/http_post_1.png)
+
+### 
+
+![](../img/http_post_2.png)
+
+## Running Environment 
+
+* A virtual machine is a "copy of a computer" running inside a computer".
+* Example: running a linux computer inside a window in a Windows computer.
+* It is very useful to guarantee that a program runs inside the same computer everywhere.
+* Quite heavyweight to share and not very comfortable to use.
+
+### Docker
+
+::: columns
+
+:::: column
+
+* Same idea of virtual machine, but only core funcionality.
+* Described using a single file, which can be shared via Github.
+* Widely used, can be easily depoloyed in the cloud
+
+::::
+
+:::: column
+
+```Dockerfille
+FROM ubuntu:lastest
+
+RUN pip install -y matplotlib pandas seaborn jupyter
+
+CMD ["jupyter-notebook"]
+```
+
+::::
+
+:::
+
